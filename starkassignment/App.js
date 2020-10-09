@@ -6,10 +6,17 @@ import Home from './src/Screens/Home';
 import Address from './src/Screens/Address';
 import Cart from './src/Screens/Cart';
 
+import {Provider} from 'react-redux';
+
+import ConfigStore from './src/redux/store/ConfigStore';
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
+
+    <Provider store={ConfigStore}>
+
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -58,6 +65,8 @@ const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
+  
+    </Provider>
   );
 };
 

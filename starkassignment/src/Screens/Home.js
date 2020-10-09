@@ -11,13 +11,17 @@ import {
   Image,
 } from 'react-native';
 
+import { connect } from "react-redux";
+
+import { addSelectedProduct } from "../redux/actions/Action";
+
 import AppButton from '../Component/Button';
 
 import {fetchData} from '../Services/Services';
 
 import ScreenStyles from '../Styles/ScreenStyles';
 
-export default class Home extends React.Component {  
+ class Home extends React.Component {  
     
   constructor(props) {
     super(props);
@@ -47,6 +51,9 @@ export default class Home extends React.Component {
   FlatListItemSeparator = () => <View style={ScreenStyles.line} />;
 
   selectItem = (data) => {
+
+    this.props.addSelectedProduct(data) 
+
     data.item.isSelect = !data.item.isSelect;
     data.item.selectedClass = data.item.isSelect
       ? ScreenStyles.selected
@@ -116,3 +123,16 @@ export default class Home extends React.Component {
      );
   }
 }
+
+mapStateToProps = state => ({
+  SelectedProductItem: state.SelectedProductItem,
+});
+
+mapDispatchToProps = dispatch => ({
+addSelectedProduct: SelectedProductItem => dispatch(addSelectedProduct(SelectedProductItem)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);
