@@ -52,7 +52,7 @@ import ScreenStyles from '../Styles/ScreenStyles';
 
   selectItem = (data) => {
 
-    this.props.addSelectedProduct(data) 
+    this.props.add(data) 
 
     data.item.isSelect = !data.item.isSelect;
     data.item.selectedClass = data.item.isSelect
@@ -124,13 +124,20 @@ import ScreenStyles from '../Styles/ScreenStyles';
   }
 }
 
-mapStateToProps = state => ({
-  SelectedProductItem: state.SelectedProductItem,
-});
 
-mapDispatchToProps = dispatch => ({
-addSelectedProduct: SelectedProductItem => dispatch(addSelectedProduct(SelectedProductItem)),
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+    products: state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    add: (key) => dispatch(addSelectedProduct(key))
+  }
+}
 
 export default connect(
   mapStateToProps,

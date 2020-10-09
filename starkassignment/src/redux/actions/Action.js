@@ -1,9 +1,17 @@
-import { ADD_SELECTED_PRODUCT_ITEM, USER_DETAILS } from "./ActionType";
+import { ADD_SELECTED_PRODUCT_ITEM,REMOVE_SELECTED_PRODUCT_ITEM, USER_DETAILS } from "./ActionType";
 
 export const addSelectedProduct = productItem => ({
   type: ADD_SELECTED_PRODUCT_ITEM,
-  payload: productItem,
+  data: productItem,
 });
+
+export const deleteProduct = (key)=>(
+  {
+  type : REMOVE_SELECTED_PRODUCT_ITEM,
+  key:key,
+  }
+);
+
 
 export const addUserDetails = (UserDetail) => ({
   type: USER_DETAILS,

@@ -29,8 +29,7 @@ import { ScrollView } from 'react-native-gesture-handler';
   render() {
     const {navigation} = this.props;
 
-
-    console.log("Product List : " +   JSON.stringify(this.props.SelectedProductItem))
+  //  console.log("Product List : " +   JSON.stringify(this.props.products))
     return (
       <ScrollView style={ScreenStyles.MainContainer}>
         
@@ -90,12 +89,20 @@ import { ScrollView } from 'react-native-gesture-handler';
   }
 }
 
-mapStateToProps = state => 
-  ({ SelectedProductItem: state.SelectedProductItem});
 
-mapDispatchToProps = dispatch => ({
-addSelectedProduct: SelectedProductItem => dispatch(addSelectedProduct(SelectedProductItem)),
-});
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    products: state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    add: (key) => dispatch(addSelectedProduct(key))
+  }
+}
 
 export default connect(
   mapStateToProps,

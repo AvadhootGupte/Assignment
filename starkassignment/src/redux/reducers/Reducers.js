@@ -1,7 +1,7 @@
-import { ADD_SELECTED_PRODUCT_ITEM, USER_DETAILS } from "../actions/ActionType";
+import { ADD_SELECTED_PRODUCT_ITEM,RE, REMOVE_SELECTED_PRODUCT_ITEM, USER_DETAILS } from "../actions/ActionType";
 
 const initialState = {
-  SelectedProductItem: "",
+  SelectedProductItem: [],
   User_Details: ""
 };
 
@@ -12,8 +12,19 @@ const dataReducer = (state = initialState, actions) => {
 
       return {
         ...state,
-        SelectedProductItem: actions.payload,
+        SelectedProductItem: state.SelectedProductItem.concat({
+          key:Math.random(),
+          name:actions.data
+        }),
       };
+
+   case REMOVE_SELECTED_PRODUCT_ITEM:
+        return {
+          ...state,
+          SelectedProductItem: state.SelectedProductItem.filter((item) =>
+            item.key !== action.key)
+        };
+
     case USER_DETAILS:
       console.log(`Reducer:${actions.address1Payload}`);
          
