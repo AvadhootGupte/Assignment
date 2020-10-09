@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const AppButton = ({onPress, title}) => (
   <TouchableOpacity onPress={onPress} style={ButtonStyles.appTouch}>
     <LinearGradient
-      colors={['#004d40', '#009688']}
+      colors={['#ff80df', '#800060']}
       style={ButtonStyles.appButtonContainer}>
       <Text style={ButtonStyles.appButtonText}>{title}</Text>
     </LinearGradient>

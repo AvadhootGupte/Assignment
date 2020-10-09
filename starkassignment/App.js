@@ -25,7 +25,7 @@ const App = () => {
           options={{
             title: 'Home',
             headerStyle: {
-              backgroundColor: 'green',
+              backgroundColor: '#ff99e6',
             },
             headerTitleStyle: {
               fontSize: 25,
@@ -40,11 +40,11 @@ const App = () => {
             title: 'Address',
             headerBackTitle: '',
             headerStyle: {
-              backgroundColor: 'green',
+              backgroundColor: '#ff99e6',
             },
             headerTitleStyle: {
               fontSize: 25,
-              color: 'green',
+              color: 'white',
             },
           }}
         />
@@ -55,7 +55,7 @@ const App = () => {
             title: 'Cart',
             headerBackTitle: '',
             headerStyle: {
-              backgroundColor: 'red',
+              backgroundColor: '#ff99e6',
             },
             headerTitleStyle: {
               fontSize: 25,
