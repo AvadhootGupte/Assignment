@@ -39,6 +39,7 @@ import ScreenStyles from '../Styles/ScreenStyles';
         item.selectedClass = ScreenStyles.list;
         item.Price = 50;
         item.title = 'Product-' + i++;
+        item.qty = 1
         return item;
       });
       this.setState({

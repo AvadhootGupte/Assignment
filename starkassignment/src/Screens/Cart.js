@@ -15,7 +15,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
   constructor(props) {
     super(props);
-    
+    this.state={i:1}
   }
 
   FlatListItemSeparator = () => <View style={ScreenStyles.line} />;
@@ -23,7 +23,7 @@ import { ScrollView } from 'react-native-gesture-handler';
   renderItem = (data) => 
   {
     console.log(JSON.stringify(data))
-  return(
+   return(
    
     <View
       style={[ScreenStyles.list, data.item.name.item.selectedClass]}
@@ -38,8 +38,18 @@ import { ScrollView } from 'react-native-gesture-handler';
           data.item.name.item.title.slice(1)}{' '}
       </Text>
 
-        <Text style={{flex:1,textAlign:'right',marginRight:15,color:'white'}}>{'RS. ' +data.item.name.item.Price}</Text>    
-    </View>
+      <Text style={{flex:1,color:'white' , fontSize:30,fontWeight:'700'}} onPress={()=> this.setState({i:data.item.name.item.qty++})}>+</Text> 
+
+      <Text style={{flex:1,color:'white' , fontSize:30,fontWeight:'700'}} onPress={()=> this.setState({i:data.item.name.item.qty--})}>-</Text> 
+
+
+        <Text style={{flex:1,textAlign:'right',marginRight:15,color:'white', width:122}}>{'RS. ' +data.item.name.item.Price + ' X ' + this.state.i + ' = '}</Text>   
+        
+        <Text style={{flex:1,textAlign:'right',marginRight:15,color:'white'}}>{'RS. ' +data.item.name.item.Price * this.state.i }</Text>   
+        
+        
+
+        </View>
   )
         };
 
