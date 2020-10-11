@@ -25,6 +25,14 @@ import { ScrollView } from 'react-native-gesture-handler';
     };
   }
 
+methodcall()
+{
+  const {add1,add2,country,state,city} = this.state
+
+  this.props.add_address({address1:add1,address2:add2,country:country,state:state,city:city})
+  this.props.navigation.navigate('Cart')
+}
+
 
   render() {
     const {navigation} = this.props;
@@ -83,7 +91,7 @@ import { ScrollView } from 'react-native-gesture-handler';
           value={this.state.city}   
           ></AppTextInput>
  
-        <AppButton title="Next" onPress={() => navigation.navigate('Cart')} />
+        <AppButton title="Next" onPress={() => this.methodcall()} />
       </ScrollView>
     );
   }
@@ -94,13 +102,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    products: state
+    address: state
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    add: (key) => dispatch(addSelectedProduct(key))
+    add_address: (key) => dispatch(addUserDetails(key))
   }
 }
 

@@ -58,20 +58,35 @@ import { ScrollView } from 'react-native-gesture-handler';
    
     console.log("Product List : " +   JSON.stringify(this.props.products))
 
+    console.log(" Address1 : " +   JSON.stringify(this.props.products.address1))
+
+    console.log(" Address 2: " +   JSON.stringify(this.props.products.address2))
+    console.log(" Country : " +   JSON.stringify(this.props.products.country))
+    console.log(" State : " +   JSON.stringify(this.props.products.state))
+    console.log(" City : " +   JSON.stringify(this.props.products.city))
+    
+
     return (
    
    < SafeAreaView style={ScreenStyles.MainContainer}>   
       <View style={ScreenStyles.MainContainer}>
         <FlatList
-          data={this.props.products.Reducers.SelectedProductItem}
+          data={this.props.products.SelectedProductItem}
           ItemSeparatorComponent={this.FlatListItemSeparator}
           renderItem={(item) => this.renderItem(item)}
         
         />
-
-         
+     
       </View>
           <View>
+
+
+           <Text> Address1 : { this.props.products.address1 }</Text>  
+           <Text> Address2 : { this.props.products.address2 }</Text>  
+           <Text> Country : { this.props.products.country }</Text>  
+           <Text> State : { this.props.products.state }</Text>  
+           <Text> City : { this.props.products.city }</Text>  
+          
            <AppButton
             title="Place Order"
             onPress={() => alert('Placed Order Successfully...')}
@@ -86,7 +101,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    products: state
+    products: state.Reducers,
   }
 }
 
